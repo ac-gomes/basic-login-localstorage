@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body{
+  margin:0 ;
+  font-family: 'Roboto',sans-serif;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+
+.app-register{
+  width: 100vw;
+  height: 100vh;
+  background: #223238;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-register{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.left-register >h1{
+  /* font-size: 3vw; */
+  color: #ffff;
+}
+
+.right-register{
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.relaxing-at-home-animate{
+  width: 35vw;
+
+}
+.card-register{
+  width: 60%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #b962c9;
+  border-radius: 15px;
+  box-shadow: 0px 10px 40px #0000;
+}
+.card-register >h1{
+  color: #ffff;
+  font-weight: 800;
+  margin: 0;
+}
+.textfield{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 10px 0px;
+}
+.textfield >input{
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #EBC6EA;
+  color: #6D306B;
+  font-size: 12pt;
+  box-shadow: #0000;
+  outline:none ;
+  box-sizing: border-box;
+}
+
+.textfield > label{
+  color: #ffff ;
+  margin-bottom: 10px;
+}
+.textfield > input::placeholder{
+  color: #3b383bde
+}
+
+.btn-register{
+  width: 100%;
+  padding: 10px 0px;
+  margin: 25px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: #6D306B;
+  color: #ffff;
+  cursor: pointer;
+  box-shadow: 0px 10px 20px -12px #dd93db;
+}
+
+@media only screen and (max-width: 950px){
+  .card-register{
+    width: 85%;
+    height: 90%;
+
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .app-register{
+    flex-direction: column;
+    height: 100%;
+
+  }
+
+  .left-register > h1{
+    display: none;
+  }
+
+  .left-register{
+    width: 100%;
+    height: auto;
+  }
+
+  .right-register {
+    width: 90%;
+    height: auto;
+
+  }
+
+  .relaxing-at-home-animate{
+    width: 35vh;
+  }
+
+}
