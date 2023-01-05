@@ -4,7 +4,6 @@ const messageList = {
   passwordUpper:'Atleast one uppercase!',
   passwordlower:'Atleast one lowercase!',
   passwordSpecialSybols:'Atleast one special symbols!',
-  paswordNoMatch: 'Mismatched passwords!'
 };
 
 const colors = {

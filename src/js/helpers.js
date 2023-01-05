@@ -20,28 +20,22 @@ const createElement = (elementType) => {
   return newElement
 };
 
-const insertStyle = (element, color, hasBgColor = false) => {
-  if (hasBgColor != false){
-    element.style.backgroundColor = color
-  }
-  if (color != false){
-    element.style.borderColor = color
-  }
-};
+function getMsgList(list, element){
+  Object.keys(list).forEach((key) => {
+  let newItem = createElement('li')
+  element.appendChild(newItem)
+  newItem.setAttribute('id',key)
+  newItem.innerHTML =  list[key]
+  console.log(list[key])
 
-const elementContent = (element, content) => {
-  if (content){
-    element.innerHTML= content
-  }
-};
+  })
+}
 
 const Tools = {
   setErrorStyle,
   setMatchingStyle,
   setErrorMessage,
-  createElement,
-  insertStyle,
-  elementContent,
+  getMsgList,
 };
 
 export default Tools;
