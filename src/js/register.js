@@ -6,23 +6,23 @@ const btnRegister = document.getElementById('btnRegister')
 import Tools from './helpers.js'
 
 function avaliateRegister() {
+  validateRegister()
 
-console.log('user: ',userNameRegister.value, 'pass:',passwordRegister.value )
+  // if(userNameRegister.value && passwordRegister.value !=""){
+  //   validateRegister()
+  //   let users = JSON.parse(localStorage.getItem('users') || '[]')
 
-  if(userNameRegister.value && passwordRegister.value !=""){
-      let users = JSON.parse(localStorage.getItem('users') || '[]')
+  //   users.push(
+  //       {
+  //           userName: userNameRegister.value,
+  //           password: passwordRegister.value
+  //       }
+  //   )
 
-      users.push(
-          {
-              userName: userNameRegister.value,
-              password: passwordRegister.value
-          }
-      )
-
-      //localStorage.setItem('users', JSON.stringify(users))
-  }else{
-    ///teste
-  }
+  //     //localStorage.setItem('users', JSON.stringify(users))
+  // }else{
+  //   ///teste
+  // }
 };
 
 function confirmPassword(){
@@ -33,16 +33,21 @@ function confirmPassword(){
     Tools.setErrorStyle(passwordRegister)
     Tools.setErrorStyle(confirmPasswordRegister)
     Tools.setErrorMessage()
+    return
   }
-
 };
 
 function validateRegister(){
+  let TestTamanho = document.getElementById('passwordlen')
   if(passwordRegister.value.match(/[0-9]/)){
     Tools.setMatchingStyle(passwordRegister)
+    Tools.setMachingMessageStyle(TestTamanho)
+    console.log('foi ativado tam 8 ')
   }else{
     Tools.setErrorStyle(passwordRegister)
-    Tools.setErrorMessage()
+    Tools.setErrorMessageStyle(TestTamanho)
+    console.log('foi ativado tam 8 ')
+    return
   }
 
   if(passwordRegister.value.match(/[A-Z]/)){
@@ -50,6 +55,7 @@ function validateRegister(){
   }else{
     Tools.setErrorStyle(passwordRegister)
     Tools.setErrorMessage()
+    return
   }
 
   if(passwordRegister.value.match(/[a-z]/)){
@@ -57,6 +63,7 @@ function validateRegister(){
   }else{
     Tools.setErrorStyle(passwordRegister)
     Tools.setErrorMessage()
+    return
   }
 
   if(passwordRegister.value.match(/[!\@\#\$\%\_\^\*\>\<\,]/)){
@@ -64,16 +71,16 @@ function validateRegister(){
   }else{
     Tools.setErrorStyle(passwordRegister)
     Tools.setErrorMessage()
+    return
   }
 
   if(passwordRegister.value.length < 8){
     Tools.setErrorStyle(passwordRegister)
     Tools.setErrorMessage()
+    return
   }else{
     Tools.setMatchingStyle(passwordRegister)
-
   }
-
 }
 
 function Register(){
@@ -82,6 +89,7 @@ function Register(){
 
 const signIn = {
   Register,
+  validateRegister,
 
 };
 

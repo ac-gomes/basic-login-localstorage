@@ -10,9 +10,12 @@ function setMatchingStyle(element){
   element.style.borderBottomColor =  '#009900'
 };
 
-function setErrorMessage(element, errorType){
-  settingList.messageList[errorType]
+function setErrorMessageStyle(element){
+  element.style.color =  '#f93706'
+};
 
+function setMachingMessageStyle(element){
+  element.style.color =  '#009900'
 };
 
 const createElement = (elementType) => {
@@ -26,7 +29,7 @@ function getMsgList(list, element){
   element.appendChild(newItem)
   newItem.setAttribute('id',key)
   newItem.innerHTML =  list[key]
-  console.log(list[key])
+  // console.log(list[key])
 
   })
 }
@@ -34,7 +37,8 @@ function getMsgList(list, element){
 const Tools = {
   setErrorStyle,
   setMatchingStyle,
-  setErrorMessage,
+  setMachingMessageStyle,
+  setErrorMessageStyle,
   getMsgList,
 };
 

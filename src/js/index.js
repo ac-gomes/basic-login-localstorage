@@ -6,9 +6,12 @@ const errorlist = document.getElementById('error-list')
 import signIn from './register.js'
 import settingList from '../data/messageError.js'
 import Tools from './helpers.js'
+import Functions from '../utils/index.js'
 
 Tools.getMsgList(settingList.messageList,errorlist)
 
+let listaDeIds = Functions.getErrorIdList()
+console.log(listaDeIds)
 
-
-//  Tools.createElement()
+signIn.Register()
+signIn.validateRegister()
