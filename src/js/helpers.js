@@ -1,27 +1,3 @@
-import settingList from '../data/messageError.js'
-
-function setErrorStyle(element){
-  element.style.borderBottomStyle= 'inset'
-  element.style.borderBottomColor =  '#f93706'
-};
-
-function setMatchingStyle(element){
-  element.style.borderBottomStyle= 'inset'
-  element.style.borderBottomColor =  '#009900'
-};
-
-function setErrorMessageStyle(element){
-  element.style.color =  '#f93706'
-};
-
-function setMachingMessageStyle(element){
-  element.style.color =  '#009900'
-};
-
-const createElement = (elementType) => {
-  let newElement = document.createElement(elementType);
-  return newElement
-};
 
 function getMsgList(list, element){
   Object.keys(list).forEach((key) => {
@@ -33,11 +9,14 @@ function getMsgList(list, element){
   })
 };
 
+const createElement = (elementType) => {
+  let newElement = document.createElement(elementType);
+  return newElement
+};
+
+
+
 const Tools = {
-  setErrorStyle,
-  setMatchingStyle,
-  setMachingMessageStyle,
-  setErrorMessageStyle,
   getMsgList,
 };
 

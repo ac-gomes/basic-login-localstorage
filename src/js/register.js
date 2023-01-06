@@ -2,8 +2,9 @@ const userNameRegister = document.getElementById('user-register')
 const passwordRegister = document.getElementById('password-register')
 const confirmPasswordRegister = document.getElementById('confirm-password-register')
 const btnRegister = document.getElementById('btnRegister')
+const showHidePwd = document.getElementById('toggle-password')
 
-import Tools from './helpers.js'
+import Functions from '../utils/index.js'
 
 function avaliateRegister() {
   validateRegister()
@@ -26,71 +27,114 @@ function avaliateRegister() {
 };
 
 function confirmPassword(){
+  let errorsList = document.getElementById('error-list')
   if(passwordRegister.value == confirmPasswordRegister.value){
-    Tools.setMatchingStyle(passwordRegister)
-    Tools.setMatchingStyle(confirmPasswordRegister)
+    Functions.setMatchingStyle(passwordRegister)
+    Functions.setMatchingStyle(confirmPasswordRegister)
+
+    // errorsList.classList.add('error-list-hide')
+    errorsList.style.display = 'none'
+
   }else{
-    Tools.setErrorStyle(passwordRegister)
-    Tools.setErrorStyle(confirmPasswordRegister)
-    Tools.setErrorMessage()
+    Functions.setErrorStyle(confirmPasswordRegister)
+    Functions.setErrorStyle(passwordRegister)
+
     return
   }
 };
 
-function validateRegister(){
-  let TestTamanho = document.getElementById('passwordlen')
-  if(passwordRegister.value.match(/[0-9]/)){
-    Tools.setMatchingStyle(passwordRegister)
-    Tools.setMachingMessageStyle(TestTamanho)
-    console.log('foi ativado tam 8 ')
+function validateName(){
+  let userNamelength = document.getElementById('userNameLen')
+  if(userNameRegister.value.length < 3 ){
+    Functions.setErrorStyle(userNameRegister)
+    Functions.setErrorMessageStyle(userNamelength)
+    return
   }else{
-    Tools.setErrorStyle(passwordRegister)
-    Tools.setErrorMessageStyle(TestTamanho)
-    console.log('foi ativado tam 8 ')
+    Functions.setMatchingStyle(userNameRegister)
+    Functions.setMachingMessageStyle(userNamelength)
+  }
+};
+
+function validateRegister(){
+  let passwordlength = document.getElementById('passwordlen')
+  let passwordUppers = document.getElementById('passwordUpper')
+  let passwordlowers = document.getElementById('passwordlower')
+  let passwordSpecialSybol = document.getElementById('passwordSpecialSybols')
+  let passwordNumbers = document.getElementById('passwordNumber')
+
+  if(passwordRegister.value.match(/[0-9]/)){
+    Functions.setMatchingStyle(passwordRegister)
+    Functions.setMachingMessageStyle(passwordNumbers)
+  }else{
+    Functions.setErrorStyle(passwordRegister)
+    Functions.setErrorMessageStyle(passwordNumbers)
     return
   }
 
   if(passwordRegister.value.match(/[A-Z]/)){
-    Tools.setMatchingStyle(passwordRegister)
+    Functions.setMatchingStyle(passwordRegister)
+    Functions.setMachingMessageStyle(passwordUppers)
   }else{
-    Tools.setErrorStyle(passwordRegister)
-    Tools.setErrorMessage()
+    Functions.setErrorStyle(passwordRegister)
+     Functions.setErrorMessageStyle(passwordUppers)
     return
   }
 
   if(passwordRegister.value.match(/[a-z]/)){
-    Tools.setMatchingStyle(passwordRegister)
+    Functions.setMatchingStyle(passwordRegister)
+    Functions.setMachingMessageStyle(passwordlowers)
   }else{
-    Tools.setErrorStyle(passwordRegister)
-    Tools.setErrorMessage()
+    Functions.setErrorStyle(passwordRegister)
+    Functions.setErrorMessageStyle(passwordlowers)
     return
   }
 
   if(passwordRegister.value.match(/[!\@\#\$\%\_\^\*\>\<\,]/)){
-    Tools.setMatchingStyle(passwordRegister)
+    Functions.setMatchingStyle(passwordRegister)
+    Functions.setMachingMessageStyle(passwordSpecialSybol)
   }else{
-    Tools.setErrorStyle(passwordRegister)
-    Tools.setErrorMessage()
+    Functions.setErrorStyle(passwordRegister)
+    Functions.setErrorMessageStyle(passwordSpecialSybol)
     return
   }
 
   if(passwordRegister.value.length < 8){
-    Tools.setErrorStyle(passwordRegister)
-    Tools.setErrorMessage()
+    Functions.setErrorStyle(passwordRegister)
+    Functions.setErrorMessageStyle(passwordlength)
     return
   }else{
-    Tools.setMatchingStyle(passwordRegister)
+    Functions.setMatchingStyle(passwordRegister)
+    Functions.setMachingMessageStyle(passwordlength)
   }
+}
+
+function validateNameForm(){
+  userNameRegister.addEventListener('keyup',validateName,false)
+}
+
+function validatePwdForm(){
+  passwordRegister.addEventListener('keyup',validateRegister,false)
+}
+
+function validateConfirmPwdForm(){
+  confirmPasswordRegister.addEventListener('keyup',confirmPassword,false)
 }
 
 function Register(){
   btnRegister.addEventListener('click',avaliateRegister,false)
 };
 
+function showHidePassword(){
+  showHidePwd.addEventListener('click',Functions.togglePassword,false)
+}
+
 const signIn = {
   Register,
   validateRegister,
-
+  validatePwdForm,
+  validateNameForm,
+  validateConfirmPwdForm,
+  showHidePassword,
 };
 
 export default signIn;

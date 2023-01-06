@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+/* <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> */
 
 body{
   margin:0 ;
@@ -81,6 +83,32 @@ body * {
   outline:none ;
   box-sizing: border-box;
 }
+.textfield-input-pwd {
+  display: flex;
+  width: 100%;
+  border-radius: 10px;
+  background: #f7e8a5;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+
+}
+.textfield-input-pwd >input{
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  background: #f7e8a5;
+  color: #223238 ;
+  font-size: 12pt;
+  box-shadow: #0000;
+  outline:none ;
+  box-sizing: border-box;
+}
+.textfield-input-pwd >label{
+  color: #223238 ;
+  margin-bottom: 10px;
+}
 
 .textfield > label{
   color: #223238 ;
@@ -117,12 +145,29 @@ ul {
   color: #223238;
  }
 
+ .user-name-len{
+  color: #ffff;
+ }
+ .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+ }
+
+ .align-aye {
+  position: relative;
+  cursor: pointer;
+ }
 
 @media only screen and (max-width: 950px){
   .card-register{
     width: 85%;
     height: 90%;
-
+  }
+  .card-register > H1{
+    font-size: 26px;
   }
 }
 
@@ -130,7 +175,6 @@ ul {
   .app-register{
     flex-direction: column;
     height: 100%;
-
   }
 
   .left-register > h1{
@@ -150,6 +194,10 @@ ul {
 
   .relaxing-at-home-animate{
     width: 35vh;
+  }
+
+  .card-register > H1{
+    font-size: 20px;
   }
 
 }
