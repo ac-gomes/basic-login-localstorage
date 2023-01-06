@@ -29,10 +29,9 @@ function getMsgList(list, element){
   element.appendChild(newItem)
   newItem.setAttribute('id',key)
   newItem.innerHTML =  list[key]
-  // console.log(list[key])
 
   })
-}
+};
 
 const Tools = {
   setErrorStyle,

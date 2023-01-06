@@ -52,12 +52,12 @@ body * {
   align-items: center;
   flex-direction: column;
   padding: 30px 35px;
-  background: #b962c9;
+  background: #FFD700;
   border-radius: 15px;
   box-shadow: 0px 10px 40px #0000;
 }
 .card-register >h1{
-  color: #ffff;
+  color: #223238;
   font-weight: 800;
   margin: 0;
 }
@@ -74,8 +74,8 @@ body * {
   border: none;
   border-radius: 10px;
   padding: 15px;
-  background: #EBC6EA;
-  color: #6D306B;
+  background: #f7e8a5;
+  color: #223238 ;
   font-size: 12pt;
   box-shadow: #0000;
   outline:none ;
@@ -83,11 +83,11 @@ body * {
 }
 
 .textfield > label{
-  color: #ffff ;
+  color: #223238 ;
   margin-bottom: 10px;
 }
 .textfield > input::placeholder{
-  color: #3b383bde
+  color: #223238
 }
 
 .btn-register{
@@ -100,20 +100,21 @@ body * {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 2px;
-  background: #6D306B;
-  color: #ffff;
+  background: #223238;
+  color: #FFD700;
   cursor: pointer;
-  box-shadow: 0px 10px 20px -12px #dd93db;
+  box-shadow: 0px 10px 20px -12px #223238;
 }
 
 ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-size: 14px;
   list-style-type: none;
   text-align: left;
   padding-left: 0;
-  color: #ffffff;
+  color: #223238;
  }
 
 
