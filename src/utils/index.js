@@ -21,14 +21,32 @@ function togglePassword(){
   }
 };
 
+function togglePasswordLogin(){
+  let toggleLogin = document.getElementById('toggle-password-login')
+  let passwordInputLogin = document.getElementById('password-login')
+
+  if(toggleLogin.textContent =='visibility_off'){
+    toggleLogin.innerText ='visibility'
+    passwordInputLogin.setAttribute('type', 'text');
+  }else{
+    toggleLogin.innerText ='visibility_off'
+    passwordInputLogin.setAttribute('type', 'password');
+  }
+};
+
+function moveToNewUser(){
+  window.location.href = "http://127.0.0.1:5500/register.html"
+};
+
+
 function setErrorStyle(element){
   element.style.borderLeftStyle= 'inset'
-  element.style.borderLeftColor =  '#ff531a'
+  element.style.borderLeftColor =  '#FF260D'
 };
 
 function setMatchingStyle(element){
   element.style.borderLeftStyle= 'inset'
-  element.style.borderLeftColor =  '#009900'
+  element.style.borderLeftColor =  '#1aff53'
 };
 
 function setErrorMessageStyle(element){
@@ -39,6 +57,7 @@ function setMachingMessageStyle(element){
   element.style.color = '#009900'
 };
 
+
 const Functions = {
   getErrorIdList,
   setErrorStyle,
@@ -46,6 +65,8 @@ const Functions = {
   setMachingMessageStyle,
   setErrorMessageStyle,
   togglePassword,
+  togglePasswordLogin,
+  moveToNewUser,
 }
 
 export default Functions;

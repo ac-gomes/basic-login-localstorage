@@ -22,11 +22,17 @@
         </div>
         <div class="textfield">
           <label for="password">Password</label>
-          <input type="password" name="password" id="password-login" placeholder="Password">
+          <div class="textfield-input-pwd">
+            <input type="password" name="password" id="password-login" placeholder="Password">
+            <span class="material-symbols-outlined align-aye" id="toggle-password-login">visibility_off</span>
+          </div>
         </div>
-        <button class="btn-login">Login</button>
+        <button class="btn-login" id="btn-login-access">Login</button>
+        <div class="line"></div>
+        <button class="new-account" id="create-account">create account</button>
       </div>
     </div>
   </div>
+  <script type="module" src="./src/js/login/Login.js"></script>
 </body>
 </html>

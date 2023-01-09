@@ -1,15 +1,13 @@
 import settingList from '../data/messageError.js'
 import Tools from './helpers.js'
 import Functions from '../utils/index.js'
-import signIn from './register.js'
+import signIn from './register/Register.js'
 
-// const userNameRegister = document.getElementById('user-register')
-// const passwordRegister = document.getElementById('password-register')
-// const confirmPasswordRegister = document.getElementById('confirm-password-register')
+
+
 const errorlist = document.getElementById('error-list')
 
 Tools.getMsgList(settingList.messageList,errorlist)
-
 
 signIn.Register()
 signIn.validatePwdForm()
@@ -17,8 +15,22 @@ signIn.validateNameForm()
 signIn.validateConfirmPwdForm()
 signIn.showHidePassword()
 
-const toggle = document.getElementById('toggle-password')
-console.log(toggle.textContent)
+
+function togglePasswordLogin(){
+  let passwordInputLogin = document.getElementById('password-login')
+  let toggleLogin = document.getElementById('toggle-password-login')
+
+  if(toggleLogin.textContent =='visibility_off'){
+    toggleLogin.innerText ='visibility'
+    passwordInputLogin.setAttribute('type', 'text');
+  }else{
+    toggleLogin.innerText ='visibility_off'
+    passwordInputLogin.setAttribute('type', 'password');
+  }
+  console.log(toggleLogin.textContent)
+};
+
+togglePasswordLogin()
 
 // let listaDeIds = Functions.getErrorIdList()
 // console.log(listaDeIds)

@@ -4,26 +4,30 @@ const confirmPasswordRegister = document.getElementById('confirm-password-regist
 const btnRegister = document.getElementById('btnRegister')
 const showHidePwd = document.getElementById('toggle-password')
 
-import Functions from '../utils/index.js'
+import Functions from '../../utils/index.js'
 
 function avaliateRegister() {
-  validateRegister()
+  if(userNameRegister.value && passwordRegister.value !=""){
 
-  // if(userNameRegister.value && passwordRegister.value !=""){
-  //   validateRegister()
-  //   let users = JSON.parse(localStorage.getItem('users') || '[]')
+    let users = JSON.parse(localStorage.getItem('users') || '[]')
 
-  //   users.push(
-  //       {
-  //           userName: userNameRegister.value,
-  //           password: passwordRegister.value
-  //       }
-  //   )
+    users.push(
+        {
+            userName: userNameRegister.value,
+            password: passwordRegister.value
+        }
+    )
 
-  //     //localStorage.setItem('users', JSON.stringify(users))
-  // }else{
-  //   ///teste
-  // }
+      localStorage.setItem('users', JSON.stringify(users))
+
+      userNameRegister.value = ''
+      passwordRegister.value = ''
+      confirmPasswordRegister.value = ''
+
+
+  }else{
+    //impedir registro
+  }
 };
 
 function confirmPassword(){
@@ -32,9 +36,7 @@ function confirmPassword(){
     Functions.setMatchingStyle(passwordRegister)
     Functions.setMatchingStyle(confirmPasswordRegister)
 
-    // errorsList.classList.add('error-list-hide')
     errorsList.style.display = 'none'
-
   }else{
     Functions.setErrorStyle(confirmPasswordRegister)
     Functions.setErrorStyle(passwordRegister)
