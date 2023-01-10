@@ -38,7 +38,6 @@ function moveToNewUser(){
   window.location.href = "http://127.0.0.1:5500/register.html"
 };
 
-
 function setErrorStyle(element){
   element.style.borderLeftStyle= 'inset'
   element.style.borderLeftColor =  '#FF260D'

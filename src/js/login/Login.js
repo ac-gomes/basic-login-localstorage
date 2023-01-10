@@ -5,8 +5,10 @@ const buttonnewUser= document.getElementById('create-account')
 const showHidePwdLogin = document.getElementById('toggle-password-login')
 
 import Functions from '../../utils/index.js'
+import userAccessControl from '../currentUser.js'
+import moveToMainPage from '../routes/main-page.js'
 
-function AvaliateLogin() {
+function evaluateLogin() {
   let users = []
 
   let validUser = {
@@ -15,24 +17,32 @@ function AvaliateLogin() {
   }
   users = JSON.parse(localStorage.getItem('users'))
   users.forEach((item) => {
-      if(userLogin.value == item.userName && passwordLogin.value == item.password){
+    if(userLogin.value.toUpperCase() == item.userName.toUpperCase() && passwordLogin.value == item.password){
 
-        validUser = {
-              user: item.userCad,
-              password: item.senhaCad
-          }
-
-          console.log(validUser)
-          window.location.href = "http://127.0.0.1:5500/index.html"
-          // return validUser
-      }else{
-
+      validUser = {
+        user: item.userName,
+        password: item.password
       }
+      userLogin.value = ''
+      passwordLogin.value = ''
+
+    }
   })
+
+  return validUser
+};
+
+function userControl(){
+  let currentLogged = evaluateLogin()
+  const loggedUser = userAccessControl.currentLoggedUser(currentLogged)
+  console.log(loggedUser)
+  if(loggedUser.isLogged){
+    moveToMainPage()
+  }
 };
 
 function Login(){
-  buttonLogin.addEventListener('click',AvaliateLogin,false)
+  buttonLogin.addEventListener('click',userControl,false)
 };
 
 function showHidePasswordLogin(){
@@ -41,15 +51,8 @@ function showHidePasswordLogin(){
 
 function newUser(){
   buttonnewUser.addEventListener('click',Functions.moveToNewUser,false)
-}
+};
 
-Login()
-showHidePasswordLogin()
-newUser()
-
-const accessControl = {
-  Login,
-  showHidePasswordLogin,
-}
-
-export default accessControl;
+Login();
+showHidePasswordLogin();
+newUser();

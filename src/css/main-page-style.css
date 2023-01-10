@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+body{
+  margin:0 ;
+  font-family: 'Roboto',sans-serif;
+  background: #223238;
+}
+
+body * {
+  box-sizing: border-box;
+}
+.app{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item{
+  margin: 25px 0px;
+}
+
+.loader {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.content {
+  height: 50%;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 35px;
+  background: #FFD700;
+  border-radius: 15px;
+}
+.content >h3{
+  color: #223238;
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.wrapper-logout{
+  display: flex;
+  border-radius: 20px;
+  background: red;
+  color: #ffff;
+  padding: 5px;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  font-weight: 500;
+  cursor: pointer;
+}
+.loader:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #FFD700;
+  border-color: #FFD700 transparent #FFD700 transparent;
+  animation: loader 1.2s linear infinite;
+}
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
