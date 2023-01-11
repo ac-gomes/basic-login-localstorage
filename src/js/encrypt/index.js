@@ -1,8 +1,22 @@
-function stringToMD5(string) {
-  const crypto = require('crypto');
-  const hash = crypto.createHash('md5');
-  hash.update(string);
-  return hash.digest('hex');
-}
+function preLoad(...args){
+    args.map(fn => {
+        if(fn instanceof Function){
+           console.log(fn instanceof Function)
+           fn()
 
-console.log(stringToMD5('example string'))
+        }
+    })
+
+};
+
+function helooA(){
+    console.log('olá A')
+};
+function helooB(){
+    console.log('olá B')
+};
+function helooC(){
+    console.log('olá C')
+};
+
+preLoad(helooA,helooB,helooC)

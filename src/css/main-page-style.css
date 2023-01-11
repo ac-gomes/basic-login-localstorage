@@ -23,11 +23,6 @@ body * {
   margin: 25px 0px;
 }
 
-.loader {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-}
 .content {
   height: 50%;
   width: 70%;
@@ -39,9 +34,7 @@ body * {
   background: #FFD700;
   border-radius: 15px;
 }
-.content >h3{
-  color: #223238;
-}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -62,22 +55,6 @@ body * {
   font-weight: 500;
   cursor: pointer;
 }
-.loader:after {
-  content: " ";
-  display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
-  border-radius: 50%;
-  border: 6px solid #FFD700;
-  border-color: #FFD700 transparent #FFD700 transparent;
-  animation: loader 1.2s linear infinite;
-}
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.item >h3{
+  color: #223238 !important;
 }
