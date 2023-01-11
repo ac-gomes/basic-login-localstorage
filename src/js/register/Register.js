@@ -5,16 +5,18 @@ const btnRegister = document.getElementById('btnRegister')
 const showHidePwd = document.getElementById('toggle-password')
 
 import Functions from '../../utils/index.js'
+import encryptSha256 from '../encrypt/index.js'
 
-function avaliateRegister() {
+async function evaluateRegister() {
   if(userNameRegister.value && passwordRegister.value !=""){
-
+    const encryptedPassword = await encryptSha256(passwordRegister.value)
+    console.log(encryptedPassword);
     let users = JSON.parse(localStorage.getItem('users') || '[]')
 
     users.push(
         {
             userName: userNameRegister.value,
-            password: passwordRegister.value
+            password: encryptedPassword
         }
     )
 
@@ -123,7 +125,7 @@ function validateConfirmPwdForm(){
 }
 
 function Register(){
-  btnRegister.addEventListener('click',avaliateRegister,false)
+  btnRegister.addEventListener('click',evaluateRegister,false)
 };
 
 function showHidePassword(){

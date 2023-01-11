@@ -7,8 +7,9 @@ const showHidePwdLogin = document.getElementById('toggle-password-login')
 import Functions from '../../utils/index.js'
 import userAccessControl from '../currentUser.js'
 import moveToMainPage from '../routes/main-page.js'
+import encryptSha256 from '../encrypt/index.js'
 
-function evaluateLogin() {
+ function evaluateLogin() {
   let users = []
 
   let validUser = {
@@ -16,33 +17,29 @@ function evaluateLogin() {
       password: '',
   }
   users = JSON.parse(localStorage.getItem('users'))
-  users.forEach((item) => {
-    if(userLogin.value.toUpperCase() == item.userName.toUpperCase() && passwordLogin.value == item.password){
+  users.forEach(async (item) => {
+    const encryptedPassword = await encryptSha256(passwordLogin.value)
+    if(userLogin.value.toUpperCase() == item.userName.toUpperCase() && encryptedPassword == item.password){
 
-      validUser = {
-        user: item.userName,
-        password: item.password
+      validUser ={
+        password:  await encryptSha256(passwordLogin.value),
+        userName: item.userName,
       }
-      userLogin.value = ''
-      passwordLogin.value = ''
+      userAccessControl.currentLoggedUser(validUser)
+      moveToMainPage()
 
+    }else{
+      let errorMsg =document.getElementById('msg-error-id')
+      errorMsg.style.marginBottom='0'
+      errorMsg.style.display='block'
+      errorMsg.innerText ='Invalid email or password!'
     }
+
   })
-
-  return validUser
-};
-
-function userControl(){
-  let currentLogged = evaluateLogin()
-  const loggedUser = userAccessControl.currentLoggedUser(currentLogged)
-  console.log(loggedUser)
-  if(loggedUser.isLogged){
-    moveToMainPage()
-  }
 };
 
 function Login(){
-  buttonLogin.addEventListener('click',userControl,false)
+  buttonLogin.addEventListener('click',evaluateLogin,false)
 };
 
 function showHidePasswordLogin(){

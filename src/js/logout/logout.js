@@ -2,7 +2,6 @@ import moveToLogin from '../routes/login.js'
 
 function logOut(){
   let loggedUser = {
-        currentName: '',
         currentUser: '',
         isLogged: false
       }

@@ -1,22 +1,9 @@
-function preLoad(...args){
-    args.map(fn => {
-        if(fn instanceof Function){
-           console.log(fn instanceof Function)
-           fn()
 
-        }
-    })
-
+async function encryptSha256(str) {
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder("utf-8").encode(str));
+    const hashArray = Array.from( new Uint8Array(buf))
+    const hashHex = hashArray.map(b => ((`00${b.toString(16)}`).slice(-2))).join('');
+    return hashHex
 };
 
-function helooA(){
-    console.log('olá A')
-};
-function helooB(){
-    console.log('olá B')
-};
-function helooC(){
-    console.log('olá C')
-};
-
-preLoad(helooA,helooB,helooC)
+export default encryptSha256;

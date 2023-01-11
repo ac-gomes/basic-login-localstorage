@@ -10,7 +10,6 @@ function setCurrentLoggedUser(){
   if (loggedUser.isLogged){
     let lblUser = document.getElementById('current-logged-user')
     lblUser.innerText = `Seja bem vindo ${loggedUser.currentUser}`
-    lblUser.style.color = "#fff";
   }else{
     moveToLogin()
   }

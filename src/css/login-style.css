@@ -115,6 +115,12 @@ body * {
   color: #223238 ;
   margin-bottom: 10px;
 }
+.msg-error{
+  margin-top: 10px;
+  margin-bottom: 0px;
+  display: none;
+  color: red !important;
+}
 
 .material-symbols-outlined {
   font-variation-settings:
@@ -129,10 +135,11 @@ body * {
   cursor: pointer;
  }
 
-.btn-login{
+ .btn-login{
   width: 100%;
-  padding: 10px 0px;
-  margin: 25px;
+  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
   border: none;
   border-radius: 8px;
   outline: none;
@@ -153,7 +160,8 @@ body * {
 .new-account{
   width: 70%;
   padding: 10px 0px;
-  margin: 25px;
+  margin-top: 20px;
+  margin-bottom: 0;
   border: none;
   border-radius: 8px;
   outline: none;
