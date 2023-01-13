@@ -1,5 +1,5 @@
 function moveToMainPage(){
-  window.location.href = "http://127.0.0.1:5500/index.html"
+  window.location.href = "https://ac-gomes.github.io/basic-login-localstorage/index.html"
 };
 
 export default moveToMainPage;
