@@ -1,6 +1,6 @@
 
 function moveToNewUser(){
-  window.location.href = "http://127.0.0.1:5500/register.html"
+  window.location.href = "https://ac-gomes.github.io/basic-login-localstorage/register.html"
 };
 
 export default moveToNewUser;
