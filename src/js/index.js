@@ -1,33 +1,15 @@
+const errorlist = document.getElementById('error-list')
+
 import settingList from '../data/messageError.js'
 import Tools from './helpers.js'
 import signIn from './register/Register.js'
+import userAccessControl from './currentUser.js'
 
-const errorlist = document.getElementById('error-list')
-
-Tools.getMsgList(settingList.messageList,errorlist)
-
-signIn.Register()
-signIn.validatePwdForm()
-signIn.validateNameForm()
-signIn.validateConfirmPwdForm()
-signIn.showHidePassword()
-
-
-// function togglePasswordLogin(){
-//   let passwordInputLogin = document.getElementById('password-login')
-//   let toggleLogin = document.getElementById('toggle-password-login')
-
-//   if(toggleLogin.textContent =='visibility_off'){
-//     toggleLogin.innerText ='visibility'
-//     passwordInputLogin.setAttribute('type', 'text');
-//   }else{
-//     toggleLogin.innerText ='visibility_off'
-//     passwordInputLogin.setAttribute('type', 'password');
-//   }
-//   console.log(toggleLogin.textContent)
-// };
-
-// togglePasswordLogin()
-
-// let listaDeIds = Functions.getErrorIdList()
-// console.log(listaDeIds)
+document.body.onload = (function(){
+  Tools.getMsgList(settingList.messageList,errorlist)
+  signIn.Register()
+  signIn.validatePwdForm()
+  signIn.validateNameForm()
+  signIn.validateConfirmPwdForm()
+  signIn.showHidePassword()
+})();

@@ -14,10 +14,15 @@ const createElement = (elementType) => {
   return newElement
 };
 
-
+function loginErrorMesg(element){
+  element.style.marginBottom='0'
+  element.style.display='block'
+  element.innerText ='Invalid email or password!'
+}
 
 const Tools = {
   getMsgList,
+  loginErrorMesg
 };
 
 export default Tools;

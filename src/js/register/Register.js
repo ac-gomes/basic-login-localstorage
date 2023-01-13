@@ -18,17 +18,16 @@ async function evaluateRegister() {
             userName: userNameRegister.value,
             password: encryptedPassword
         }
-    )
-
+      )
       localStorage.setItem('users', JSON.stringify(users))
 
       userNameRegister.value = ''
       passwordRegister.value = ''
       confirmPasswordRegister.value = ''
-
-
   }else{
-    //impedir registro
+    validateName()
+    validateRegister()
+
   }
 };
 
@@ -126,6 +125,7 @@ function validateConfirmPwdForm(){
 
 function Register(){
   btnRegister.addEventListener('click',evaluateRegister,false)
+
 };
 
 function showHidePassword(){

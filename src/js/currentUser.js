@@ -1,3 +1,6 @@
+import moveToMainPage from './routes/main-page.js';
+import moveToLogin from './routes/login.js';
+import moveToNewUser from './routes/register.js';
 
 function currentLoggedUser(currentUser) {
   let loggedUser = {
@@ -12,14 +15,20 @@ function currentLoggedUser(currentUser) {
       }
     localStorage.setItem('loggedUser', JSON.stringify(loggedUser))
 
-  }else {
-    let loggedUser = JSON.parse(localStorage.getItem('loggedUser') || '[]')
   }
 };
 
+function manageAccess(){
+  let loggedUser = JSON.parse(localStorage.getItem('loggedUser') || '[]')
+  if (loggedUser.isLogged) {
+    moveToMainPage()
+  }
+};
+
+
 const userAccessControl = {
   currentLoggedUser,
-
+  manageAccess,
 };
 
 export default userAccessControl;
