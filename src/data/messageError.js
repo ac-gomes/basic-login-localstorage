@@ -1,5 +1,5 @@
 const messageList = {
-  userNameLen:'Atleast 5 Characters!',
+  userNameLen:'Atleast 3 Characters!',
   passwordlen: 'Atleast 8 Characters!',
   passwordNumber: 'Atleast number Characters!',
   passwordUpper:'Atleast one uppercase!',

@@ -12,7 +12,6 @@ body * {
   box-sizing: border-box;
 }
 
-
 .app-register{
   width: 100vw;
   height: 100vh;
@@ -131,6 +130,14 @@ body * {
   color: #FFD700;
   cursor: pointer;
   box-shadow: 0px 10px 20px -12px #223238;
+}
+
+.signup-link-wrapper{
+  margin-top: 5px;
+  font-size: 15px;
+}
+.signup-link{
+  cursor: pointer;
 }
 
 ul {
