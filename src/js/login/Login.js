@@ -1,14 +1,12 @@
 const userLogin = document.getElementById('user-login')
 const passwordLogin = document.getElementById('password-login')
 const buttonLogin = document.getElementById('btn-login-access')
-const buttonnewUser= document.getElementById('create-account')
 const showHidePwdLogin = document.getElementById('toggle-password-login')
 const errorMsg =document.getElementById('msg-error-id')
 
 import Functions from '../../utils/index.js'
 import userAccessControl from '../currentUser.js'
 import moveToMainPage from '../routes/main-page.js'
-import moveToNewUser from '../routes/register.js'
 import encryptSha256 from '../encrypt/index.js'
 import Tools from '../helpers.js'
 
@@ -46,13 +44,8 @@ function showHidePasswordLogin(){
   showHidePwdLogin.addEventListener('click',Functions.togglePasswordLogin,false)
 };
 
-function newUser(){
-  buttonnewUser.addEventListener('click',moveToNewUser,false)
-};
-
 document.body.onload = (function(){
   userAccessControl.manageAccess();
   Login();
   showHidePasswordLogin();
-    newUser();
 })();
